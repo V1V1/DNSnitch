@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-################################################################################################
+###################################################################################################
 # DNSnitch.py:	Uses viewdns.info to perform a reverse NS lookup on a specified nameserver 
 #		and attempts zone transfers on discovered domains.
 # Example:	$ DNSnitch.py -n nameserver.target.com -zt
-# Author:	VIVI | <Website: thevivi.net> | <Email: gabriel@thevivi.net> | <Twitter: @_V1VI>
-################################################################################################
+# Author:	VIVI | <Website: thevivi.net> | <Email: gabriel@thevivi.net> | <Twitter: @_theVIVI>
+###################################################################################################
 
 import argparse
 import urllib
