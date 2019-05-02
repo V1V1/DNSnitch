@@ -9,7 +9,7 @@
 ###################################################################################################
 
 import argparse
-import urllib
+import urllib2
 import time
 import sys
 from bs4 import BeautifulSoup
@@ -71,7 +71,11 @@ def shutdown():
 def reverseNS():
 
 	#Request URL
-	lookup = urllib.urlopen('http://viewdns.info/reversens/?ns='+str(nameServer))
+	request = urllib2.Request('http://viewdns.info/reversens/?ns='+str(nameServer), \
+		headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 +'
+    '(KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36'})
+	
+	lookup = urllib2.urlopen(request)
 
 	#Get the results table
 	response =  lookup.read()
@@ -154,7 +158,8 @@ if __name__ == "__main__":
 
 	try:
 		reverseNS()
-		print 'Finished. \nScript runtime: '+ T \
-		, time.time()-start, 'seconds'
+		print LG + '\n[!] Finished!' + W
+		print 'Script runtime: '+ T \
+		, str(time.time()-start)[:-7], 'seconds'
 	except KeyboardInterrupt:
 		shutdown()
